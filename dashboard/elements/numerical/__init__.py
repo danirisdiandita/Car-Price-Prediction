@@ -9,13 +9,15 @@ def numerical_values():
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
+                    html.H6("Year Manufactured"), 
                     dcc.Slider(
                         id="year-slider", 
                         min=1997, 
                         max=2020, 
                         value=2017,
-                        marks={str(year): str(year) for year in range(1997, 2020+1)}
-                        step=None
+                        marks={str(year): str(year) for year in range(1997, 2020+1, 20)}, 
+                        step=1, 
+                        className="mb-2 ml-2 mt-2"
                     )
                 ], style={"textAlign": "center"})
             ])
@@ -24,12 +26,14 @@ def numerical_values():
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
+                    html.H6("Car Total MileAge"),
                     dcc.Slider(
                         id="mileage-slider", 
                         min=0, 
                         max=323000, 
                         value=29900,
-                        step=100
+                        step=100, 
+                        className="mb-2 ml-2 mt-2"
                     )
                 ], style={"textAlign": "center"})
             ])
@@ -38,12 +42,14 @@ def numerical_values():
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
+                    html.H6("Tax Value"), 
                     dcc.Slider(
                         id="tax-slider", 
                         min=0, 
                         max=580, 
                         value=20,
-                        step=20
+                        step=20, 
+                        className="mb-2 ml-2 mt-2"
                     )
                 ], style={"textAlign": "center"})
             ])
@@ -52,12 +58,14 @@ def numerical_values():
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
+                    html.H6("MPG"), 
                     dcc.Slider(
                         id="mpg-slider", 
                         min=18, 
                         max=190, 
                         value=67,
-                        step=1
+                        step=1, 
+                        className="mb-2 ml-2 mt-2"
                     )
                 ], style={"textAlign": "center"})
             ])
@@ -66,6 +74,7 @@ def numerical_values():
         dbc.Col([
             dbc.Card([
                 dbc.CardBody([
+                    html.H6("Engine Size"), 
                     dcc.Slider(
                         id="engineSize-slider", 
                         min=0.0, 
