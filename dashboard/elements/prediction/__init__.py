@@ -12,5 +12,5 @@ def prediction_values():
                         html.H2(id="price-prediction-values", children="000")
                     ], style={'textAlign':'center'})
                 ]),
-            ], width=3)
+            ], width=12)
         ],className='mb-2')
