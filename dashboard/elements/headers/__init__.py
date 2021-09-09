@@ -7,8 +7,8 @@ def header_values():
     return dbc.Row([
         dbc.Col([
             dbc.CardBody([
-                html.H1("Audi Car Prediction"), 
-                html.H2("Dashboard")
+                html.H1("Audi Car Prediction Dashboard"), 
+                html.H2("R^2 = 0.956, Root Mean Square Error = 2454.1")
             ], style={"textAlign": "center"})
         ], width=10), 
         dbc.Col([
