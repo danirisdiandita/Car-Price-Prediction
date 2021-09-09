@@ -9,7 +9,7 @@ from mappings import (
 )
 
 app = FastAPI()
-pickle_in = open("model.pkl","rb")
+pickle_in = open("regressor.pkl","rb")
 regressor=pickle.load(pickle_in)
 
 scalerfile = 'scaler.sav'

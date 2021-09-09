@@ -10,6 +10,7 @@ import requests
 from elements.numerical import numerical_values 
 from elements.categorical import categorical_values
 from elements.prediction import prediction_values 
+from elements.headers import header_values 
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LUX])
 server = app.server
@@ -20,6 +21,7 @@ app.title = "Audi Car Price Prediction"
 # numerical: year, mileage, tax, mpg, engineSize 
 
 app.layout = dbc.Container([
+    header_values(), 
     numerical_values(), 
     categorical_values(), 
     prediction_values()
@@ -28,6 +30,14 @@ app.layout = dbc.Container([
 
 @app.callback(
     Output("price-prediction-values", "children"), 
+    Output("year-slider-value", "children"), 
+    Output("mileage-slider-value", "children"), 
+    Output("tax-slider-value", "children"), 
+    Output("mpg-slider-value", "children"), 
+    Output("engineSize-slider-value", "children"), 
+    Output("model-dropdown-value", "children"), 
+    Output("fuelType-dropdown-value", "children"), 
+    Output("transmission-dropdown-value", "children"), 
     Input("year-slider", "value"), 
     Input("mileage-slider", "value"), 
     Input("tax-slider", "value"), 
@@ -49,12 +59,8 @@ def get_prediction_output(year_value, mileage_value, tax_value, mpg_value, engin
         "mileage": mileage_value 
     }
 
-    try: 
-        req = requests.post(url="http://car-prediction:80/predict", json=input_json)
-        print(req.json())
-        return str(req.json().get("prediction"))
-    except: 
-        return str(10000) 
+    req = requests.post(url="http://car-prediction:80/predict", json=input_json)
+    return '{0:.2f}'.format(req.json().get("prediction")), str(year_value), str(mileage_value), str(tax_value), str(mpg_value), str(enginesize_value), str(model_value), str(fueltype_value), str(transmission_value)
 
 
 if __name__ == "__main__": 
