@@ -60,7 +60,7 @@ def get_prediction_output(year_value, mileage_value, tax_value, mpg_value, engin
     }
 
     req = requests.post(url="http://car-prediction:80/predict", json=input_json)
-    return '{0:.2f}'.format(req.json().get("prediction")), str(year_value), str(mileage_value), str(tax_value), str(mpg_value), str(enginesize_value), str(model_value), str(fueltype_value), str(transmission_value)
+    return 'SEK {0:.2f}'.format(req.json().get("prediction")), str(year_value), str(mileage_value), str(tax_value), str(mpg_value), str(enginesize_value), str(model_value), str(fueltype_value), str(transmission_value)
 
 
 if __name__ == "__main__": 
