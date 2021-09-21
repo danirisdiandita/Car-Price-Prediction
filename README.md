@@ -1,5 +1,7 @@
 # Car Price Prediction Dashboard 
 
+![Car Price Prediction](audi_car_prediction.gif)
+
 how to run (docker and docker-compose installed)
 ```
 docker-compose up -d --build 
